@@ -1,3 +1,6 @@
+// script to generate the json files
+
+
 import fs from 'fs';
 
 var files = fs.readdirSync('./assets');
