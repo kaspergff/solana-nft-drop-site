@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import twitterLogo from './assets/twitter-logo.svg';
+// import './App.css';
 import CandyMachine from './CandyMachine';
+import NavBar from './Components/NavBar/NavBar';
 
-// Constants
-const TWITTER_HANDLE = '_buildspace';
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+import "@material-tailwind/react/tailwind.css";
+
 const App = () => {
 
   // State
@@ -80,8 +79,11 @@ const [walletAddress, setWalletAddress] = useState(null);
   }, []);
 
   return (
+    <>
+    <NavBar />
     <div className="App">
     <div className="container">
+
       <div className="header-container">
         <p className="header">🍭 Candy Drop</p>
         <p className="sub-text">NFT drop machine with fair mint</p>
@@ -91,6 +93,7 @@ const [walletAddress, setWalletAddress] = useState(null);
     {walletAddress && <CandyMachine walletAddress={window.solana} />}
     </div>
   </div>
+  </>
   );
 };
 
