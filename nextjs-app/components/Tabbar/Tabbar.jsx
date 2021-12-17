@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import classNames from "classnames"
 import Link from "next/link"
 import { AiFillHome, AiFillMail } from "react-icons/ai"
-import {IoIosInformationCircle} from 'react-icons/Io'
+import {IoIosInformationCircle} from 'react-icons/io'
 
 const Tabbar = () => {
   const [currentMenu, setCurrentMenu] = useState("Mint")
