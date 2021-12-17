@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import classNames from "classnames"
 import Link from "next/link"
 import { AiFillHome, AiFillMail } from "react-icons/ai"
-import { SiSpeedtest } from "react-icons/Si"
 import {IoIosInformationCircle} from 'react-icons/Io'
 
 const Tabbar = () => {
@@ -16,7 +15,7 @@ const Tabbar = () => {
       case "Your NFT's":
         return <IoIosInformationCircle />
       case "Test":
-        return <SiSpeedtest />
+        return <AiFillMail />
       case "Contact":
         return <AiFillMail />
     }
