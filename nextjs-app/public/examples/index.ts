@@ -1,0 +1,10 @@
+import img1 from "./29.png"
+import img2 from "./48.png"
+import img3 from "./59.png"
+import img4 from "./76.png"
+import img5 from "./83.png"
+import img6 from "./94.png"
+import img7 from "./99.png"
+import img8 from "./106.png"
+import img9 from "./109.png"
+export { img1, img2, img3, img4, img5, img6, img7, img8, img9 }
