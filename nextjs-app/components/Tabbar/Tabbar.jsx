@@ -8,7 +8,7 @@ const Tabbar = () => {
   const [currentMenu, setCurrentMenu] = useState("Mint")
   const menuItems = ["Mint", "Your NFT's", "Test", "Contact"]
 
-  const getIcon = (item: any) => {
+  const getIcon = (item) => {
     switch (item) {
       case "Mint":
         return <AiFillHome />
