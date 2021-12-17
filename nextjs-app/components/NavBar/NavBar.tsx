@@ -1,18 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react"
 import Link from "next/link"
 import classNames from "classnames"
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 
-const Navbar: React.FC<{ balance: number; connected: boolean }> = ({
-  balance,
-  connected,
-}) => {
-  const [currentMenu, setCurrentMenu] = useState("Home")
-  const menuItems = ["Home", "About", "Test", "Contact"]
+const Navbar: React.FC<{page:string}> = ({page}) => {
+  const [currentMenu, setCurrentMenu] = useState("")
+  const menuItems = ["Mint", "Your", "Test", "Contact"]
+  useEffect(() =>{
+    setCurrentMenu(page)
+  },[page])
 
   return (
-    <nav className='hidden md:flex flex-row  px-8 rounded-b-3xl bg-white shadow-lg justify-between'>
+    <nav className=' hidden md:flex flex-row  px-8 rounded-b-3xl bg-white shadow-lg justify-between'>
       <span className='text-3xl text-gray-800 '>NFT Drop</span>
       <ul className='flex flex-row justify-self-center'>
         {menuItems.map((item, index) => (
@@ -25,30 +25,17 @@ const Navbar: React.FC<{ balance: number; connected: boolean }> = ({
             key={index}
             onClick={() => setCurrentMenu(item)}
           >
-            {/* <Link href={item == "Home" ? '/' : '/' + item}>{item}</Link> */}
-            {item}
+            <Link href={item == "Mint" ? '/' : '/' + item}>{item}</Link>
+
+            {/* {item} */}
           </li>
         ))}
       </ul>
 
-     
-
-      <div className='scale-[0.80] static'>
-        <WalletMultiButton />
-        {connected && (
-        <div className='absolute py-2 flex flex-row items-center'>
-          <p className='text-xl font-semibold text-gray-800 '>balance</p>
-          <p className='text-xl mx-1 font-bold leading-none'>{balance}</p>
-          <p
-            className='text-xl font-bold leading-none text-transparent bg-clip-text'
-            style={{
-              backgroundImage: `linear-gradient(to bottom right, #00FFA3, #03E1FF, #DC1FFF)`,
-            }}
-          >
-            SOL
-          </p>
+      <div className='flex flex-row'>
+        <div className=' scale-[0.80] '>
+          <WalletMultiButton />
         </div>
-      )}
       </div>
     </nav>
   )

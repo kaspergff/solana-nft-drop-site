@@ -16,16 +16,10 @@ import Tabbar from "../components/Tabbar/Tabbar"
 import Image from "next/image"
 import * as examples from "../public/examples/"
 
-
 export default function Home() {
   const [balance] = useWalletBalance()
-  const {
-    isSoldOut,
-    mintStartDate,
-    isMinting,
-    startMint,
-    nftsData,
-  } = useCandyMachine()
+  const { isSoldOut, mintStartDate, isMinting, startMint, nftsData } =
+    useCandyMachine()
 
   const [isLoading, nfts] = useWalletNfts()
 
@@ -33,20 +27,28 @@ export default function Home() {
 
   const [isMintLive, setIsMintLive] = useState(false)
 
-  const [img1,setImg1] = useState(examples.img1)
-  const [img2,setImg2] = useState(examples.img2)
-  const [img3,setImg3] = useState(examples.img3)
-
+  const [img1, setImg1] = useState(examples.img1)
+  const [img2, setImg2] = useState(examples.img2)
+  const [img3, setImg3] = useState(examples.img3)
 
   const changeImages = () => {
-    let arr =  [examples.img1, examples.img2, examples.img3, examples.img4, examples.img5, examples.img6, examples.img7, examples.img8, examples.img9 ]
-    const randomIndex1 = Math.floor(Math.random() * arr.length);
-    const randomIndex2 = Math.floor(Math.random() * arr.length);
-    const randomIndex3 = Math.floor(Math.random() * arr.length);
+    let arr = [
+      examples.img1,
+      examples.img2,
+      examples.img3,
+      examples.img4,
+      examples.img5,
+      examples.img6,
+      examples.img7,
+      examples.img8,
+      examples.img9,
+    ]
+    const randomIndex1 = Math.floor(Math.random() * arr.length)
+    const randomIndex2 = Math.floor(Math.random() * arr.length)
+    const randomIndex3 = Math.floor(Math.random() * arr.length)
     setImg1(arr[randomIndex1])
     setImg2(arr[randomIndex2])
     setImg3(arr[randomIndex3])
-
 
     // setTimeout(()=>changeImages, 200000000000000)
   }
@@ -64,11 +66,9 @@ export default function Home() {
     }
     const interval = setInterval(() => {
       changeImages()
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-  
-
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <>
@@ -81,26 +81,14 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='bg-gray-300 h-screen overflow-y-scroll'>
-        <NavBar connected={connected} balance={balance.toFixed(2)} />
+        <NavBar page="Mint"/>
         <Tabbar />
         <div className='flex flex-col items-center p-10'>
           <div className='max-w-xl rounded overflow-hidden shadow-lg p-2'>
             <div className='flex gap-1'>
-              <Image
-                className='w-full rounded-md'
-                src={img1}
-                alt='Mountain'
-              />
-              <Image
-                className='w-full rounded-md'
-                src={img2}
-                alt='Mountain'
-              />
-              <Image
-                className='w-full rounded-md'
-                src={img3}
-                alt='Mountain'
-              />
+              <Image className='w-full rounded-md' src={img1} alt='Mountain' />
+              <Image className='w-full rounded-md' src={img2} alt='Mountain' />
+              <Image className='w-full rounded-md' src={img3} alt='Mountain' />
             </div>
             <div className='flex flex-col px-6 py-4'>
               <div className='self-center font-bold text-xl mb-2'>
@@ -116,20 +104,20 @@ export default function Home() {
               </p>
             </div>
             {/* {connected && ( */}
-              <div className='flex flex-row place-content-between px-6 pt-4 pb-2'>
-                <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
-                  Price: 0.5 SOL
-                </span>
-                <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
-                  Total: {nftsData.itemsAvailable}
-                </span>
-                <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
-                  Minted: {nftsData.itemsRedeemed}
-                </span>
-                <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
-                  Available: {nftsData.itemsRemaining}
-                </span>
-              </div>
+            <div className='flex flex-row place-content-between px-6 pt-4 pb-2'>
+              <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                Price: 0.5 SOL
+              </span>
+              <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                Total: {nftsData.itemsAvailable}
+              </span>
+              <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                Minted: {nftsData.itemsRedeemed}
+              </span>
+              <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                Available: {nftsData.itemsRemaining}
+              </span>
+            </div>
             {/* )} */}
             <div className=''>
               {connected ? (
@@ -140,10 +128,26 @@ export default function Home() {
                         <p>SOLD OUT</p>
                       ) : (
                         <>
-                          <div className='flex flex-col justify-space-between '>
+                          <div className='flex flex-col items-center justify-space-between '>
                             <h1 className='mx-auto mb-5 text-3xl font-bold'>
                               Mint NFT
                             </h1>
+                            <div className='flex mb-5 flex-row items-center'>
+                              <p className='text-md font-semibold text-gray-800 '>
+                                Your balance
+                              </p>
+                              <p className='text-md mx-1 font-bold leading-none'>
+                                {balance}
+                              </p>
+                              <p
+                                className='text-md font-bold leading-none text-transparent bg-clip-text'
+                                style={{
+                                  backgroundImage: `linear-gradient(to bottom right, #00FFA3, #03E1FF, #DC1FFF)`,
+                                }}
+                              >
+                                SOL
+                              </p>
+                            </div>
                             <button
                               onClick={startMint}
                               disabled={isMinting}

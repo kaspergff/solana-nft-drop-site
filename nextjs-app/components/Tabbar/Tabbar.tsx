@@ -6,14 +6,14 @@ import { SiSpeedtest } from "react-icons/Si"
 import {IoIosInformationCircle} from 'react-icons/Io'
 
 const Tabbar = () => {
-  const [currentMenu, setCurrentMenu] = useState("Home")
-  const menuItems = ["Home", "About", "Test", "Contact"]
+  const [currentMenu, setCurrentMenu] = useState("Mint")
+  const menuItems = ["Mint", "Your NFT's", "Test", "Contact"]
 
   const getIcon = (item: any) => {
     switch (item) {
-      case "Home":
+      case "Mint":
         return <AiFillHome />
-      case "About":
+      case "Your NFT's":
         return <IoIosInformationCircle />
       case "Test":
         return <SiSpeedtest />
