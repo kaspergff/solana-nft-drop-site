@@ -18,8 +18,7 @@ import { FC, useMemo } from "react";
 
 const WalletConnectionProvider: FC = ({ children }) => {
   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
-  const network = process.env
-    .NEXT_PUBLIC_SOLANA_NETWORK as WalletAdapterNetwork;
+  const network = process.env.NEXT_PUBLIC_SOLANA_NETWORK as WalletAdapterNetwork;
 
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 

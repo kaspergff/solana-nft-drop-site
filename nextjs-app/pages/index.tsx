@@ -7,7 +7,6 @@ import { useWallet } from "@solana/wallet-adapter-react"
 
 import Countdown from "react-countdown"
 import useWalletNfts from "../hooks/useWalletNFTs"
-import AnNFT from "../components/AnNFT/AnNFT"
 
 import NavBar from "../components/NavBar/NavBar"
 import Tabbar from "../components/Tabbar/Tabbar"
